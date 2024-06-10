@@ -66,9 +66,11 @@ class SzybkaWtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
             j+=1
         if j<3:
             j = 3-j
+            tit = f'Niepoprawna ilosc punktow'
             xdd = f"Zaznaczono {j} punktów za mało"
-            self.launch_Popup(xdd)
+            self.launch_Popup(tit,xdd)
         else:
+            xdd='Pole figury o wierzcholkach: '
             for i,feature in enumerate(selected_features):
                 current_x = feature.geometry().asPoint().x()
                 previous_y = selected_features[i-1].geometry().asPoint().y()
@@ -78,7 +80,11 @@ class SzybkaWtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
                     next_y = selected_features[0].geometry().asPoint().y()
                 x2_area += current_x*(next_y-previous_y)
                 area = abs(x2_area/2)
-                self.label_3_area_result.setText(f'{area:.1f} m')
+                xdd+=f'{selected_features[i]["nr_punktu"]} '
+            tit='Pole powierzchni'
+            xdd+=f'to: {area:.1f} m^2'
+            self.label_3_area_result.setText(f'{area:.1f} m2')
+            self.launch_Popup(tit,xdd)
             
     def calculate_dh(self):
         current_layer = self.mMapLayerComboBox.currentLayer()
@@ -89,22 +95,27 @@ class SzybkaWtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
         # if(j==2):
         if(j==0 or j==1):
             j=2-j
+            tit = f'Niepoprawna ilosc punktow'
             xd = f"Zaznaczono {j} punktów za mało"
-            self.launch_Popup(xd)
+            self.launch_Popup(tit,xd)
         elif(j>2):
+            tit = f'Niepoprawna ilosc punktow'
             j = j-2
             xd = f"Zaznaczono {j} punktów za wiele"
-            self.launch_Popup(xd)
+            self.launch_Popup(tit,xd)
         else:
             h_1 = float(selected_features[0]['wysokosc'])
             h_2 = float(selected_features[1]['wysokosc'])
             d_h = h_2-h_1
             self.label_dh_results.setText(f'{d_h:.2f} m')
-    def launch_Popup(self,text):
+            tit = f'Przewyzszenie'
+            xd = f'Przewyzszenie miedzy punktami {selected_features[0]["nr_punktu"]} a {selected_features[1]["nr_punktu"]} to: {d_h:.2f} m'
+            self.launch_Popup(tit,xd)
+    def launch_Popup(self,title,text):
         current_layer = self.mMapLayerComboBox.currentLayer()
         selected_features = current_layer.selectedFeatures()        
         msg = QMessageBox()
-        msg.setWindowTitle("ERROR")
+        msg.setWindowTitle(f"{title}")
         msg.setText(f"{text}")
         x = msg.exec_()
 

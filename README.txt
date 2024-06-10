@@ -13,7 +13,11 @@ By obliczyć przewyższenie należy klikąć przycisk "Oblicz dh"
 By obliczyć pole powirzchni należy klikąć przycisk "Oblicz area"
 
 Wyskoczy okienko z wynikiem
+wynik pojawi się też w komórce obok przycisku
 
 w przypadku wprowadzenia niepoprawnej ilości punktów 
 wyskoczy okienko:"Niepoprawna ilosc punktow"
 informujące o ilości brakujących/nadmiarowych punktów
+
+Jeśli chce się wykonać obliczenia dla innych punktów należy kliknąć przycisk: "Wyczyść
+
