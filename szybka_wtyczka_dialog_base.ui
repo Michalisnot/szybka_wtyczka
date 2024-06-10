@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="pushButton_calc_dh">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>90</y>
+     <x>140</x>
+     <y>80</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -29,7 +29,7 @@
   <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>140</x>
      <y>40</y>
      <width>160</width>
      <height>27</height>
@@ -39,47 +39,40 @@
   <widget class="QLabel" name="label_dh_results">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>90</y>
+     <x>240</x>
+     <y>80</y>
      <width>121</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>220</y>
-     <width>55</width>
-     <height>16</height>
-    </rect>
+   <property name="frameShape">
+    <enum>QFrame::Panel</enum>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>l</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3_area_result">
    <property name="geometry">
     <rect>
-     <x>244</x>
-     <y>220</y>
-     <width>141</width>
+     <x>240</x>
+     <y>120</y>
+     <width>121</width>
      <height>20</height>
     </rect>
    </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_calc_area">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>210</y>
+     <x>140</x>
+     <y>120</y>
      <width>93</width>
      <height>28</height>
     </rect>

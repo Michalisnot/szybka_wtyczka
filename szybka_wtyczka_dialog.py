@@ -46,8 +46,8 @@ class SzybkaWtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
         self.pushButton_calc_area.clicked.connect(self.calculate_area)  
         self.pushButton_clear.clicked.connect(self.czysc)  
         # self.pushButton_calc_area.clicked.connect(self.launch_Popup)
-        self.dlg = SzybkaWtyczkaDialo()
-        self.dlg.setWindowFlags(Qt.WindowStaysOnTopHint)
+        # self.dlg = self.label2()
+        self.setWindowFlags(Qt.WindowStaysOnTopHint)
     def czysc(self):
         mc = self.mMapLayerComboBox.currentLayer()
 
