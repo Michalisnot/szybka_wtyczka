@@ -23,7 +23,6 @@
 """
 
 import os
-
 from qgis.PyQt import uic
 from qgis.PyQt import QtWidgets
 
@@ -43,12 +42,14 @@ class SzybkaWtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
         self.pushButton_calc_dh.clicked.connect(self.calculate_dh)
-        
+        self.pushButton_calc_area.clicked.connect(self.calculate_area)
+        # self.dockWidgetContents.hide()
         
         
     def calculate_area(self):
         current_layer = self.mMapLayerComboBox.currentLayer()
         selected_features = current_layer.selectedFeatures()
+        x2_area = 0
         for i,feature in enumerate(selected_features):
             current_x = feature.geometry().asPoint().x()
             previous_y = selected_features[i-1].geometry().asPoint().y()
@@ -56,21 +57,20 @@ class SzybkaWtyczkaDialog(QtWidgets.QDialog, FORM_CLASS):
                 next_y = selected_features[i+1].geometry().asPoint().y()
             except:
                 next_y = selected_features[0].geometry().asPoint().y()
-            x2_area = current_x*(next_y-previous_y)
+            x2_area += current_x*(next_y-previous_y)
         area = x2_area/2
-        self.label_3_area_results.setText(f'{d_h:.4} m')
+        self.label_3_area_result.setText(f'{area:.4f} m')
             
     def calculate_dh(self):
-
         current_layer = self.mMapLayerComboBox.currentLayer()
         selected_features = current_layer.selectedFeatures()
-        if(np.shape(selected_features)[0]==2):
-            h_1 = float(selected_features[0]['wysokosc'])
-            h_2 = float(selected_features[1]['wysokosc'])
-            d_h = h_2-h_1
-            self.label_dh_results.setText(f'{d_h} m')
-        else:
-            self.dockWidgetContents_error.label_error.setText(f'Wybrano za mało bądź za dużo punktów')
+        # if(shape(selected_features)[0]==2):
+        h_1 = float(selected_features[0]['wysokosc'])
+        h_2 = float(selected_features[1]['wysokosc'])
+        d_h = h_2-h_1
+        self.label_dh_results.setText(f'{d_h} m')
+        # else:
+            # self.dockWidgetContents_error.label_error.setText(f'Wybrano za mało bądź za dużo punktów')
 
 
 
