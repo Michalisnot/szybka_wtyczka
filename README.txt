@@ -22,7 +22,7 @@ lub pola figury składającej się z 3 lub więcej zaznaczonych punktów.
 
 - W celu obliczenia przewyższenia należy klikąć przycisk "Oblicz dh"
 
-- W celu obliczenia pola powirzchni należy klikąć przycisk "Oblicz area"
+- W celu obliczenia pola powierzchni należy klikąć przycisk "Oblicz area"
 
 - Po uruchomieniu programu pojawi się okno wynikowe
   wynik pojawi się też w komórce obok przycisku
