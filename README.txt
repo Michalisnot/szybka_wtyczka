@@ -1,32 +1,19 @@
-Plugin Builder Results
+	Wtyczka została stworzona w celu liczenia przewyższenia dwóch zaznaczonych punktów,
+lub pola figury składającej się z 3+ zaznaczonych punktów.
 
-Your plugin SzybkaWtyczka was created in:
-    C:\Users\Lenovo\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\szybka_wtyczka
+	Sposób korzystania z wtyczki:
+Najpierw należy wybrać warstę na której chcemy zaznaczyć punkty, przy czym 
+wybrana warstwa musi mieć geometrię typu points. 
 
-Your QGIS plugin directory is located at:
-    C:/Users/Lenovo/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins
+Następnie w QGiS na wybranej powyżej warstwie należy zaznaczyć punkty, 
+dla których chce się wykonać obliczenia: 2 w przypadku różnicy wysokości,
+ 3 lub więcej w przypadku obliczenia pola powierzchni
 
-What's Next:
+By obliczyć przewyższenie należy klikąć przycisk "Oblicz dh"
+By obliczyć pole powirzchni należy klikąć przycisk "Oblicz area"
 
-  * Copy the entire directory containing your new plugin to the QGIS plugin
-    directory
+Wyskoczy okienko z wynikiem
 
-  * Compile the resources file using pyrcc5
-
-  * Run the tests (``make test``)
-
-  * Test the plugin by enabling it in the QGIS plugin manager
-
-  * Customize it by editing the implementation file: ``szybka_wtyczka.py``
-
-  * Create your own custom icon, replacing the default icon.png
-
-  * Modify your user interface by opening SzybkaWtyczka_dialog_base.ui in Qt Designer
-
-  * You can use the Makefile to compile your Ui and resource files when
-    you make changes. This requires GNU make (gmake)
-
-For more information, see the PyQGIS Developer Cookbook at:
-http://www.qgis.org/pyqgis-cookbook/index.html
-
-(C) 2011-2018 GeoApt LLC - geoapt.com
+w przypadku wprowadzenia niepoprawnej ilości punktów 
+wyskoczy okienko:"Niepoprawna ilosc punktow"
+informujące o ilości brakujących/nadmiarowych punktów
